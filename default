@@ -10,5 +10,5 @@ U_BOOT_PARAMETERS="rw rootwait"
 U_BOOT_ROOT=""
 U_BOOT_TIMEOUT="50"
 U_BOOT_FDT="rockchip/rk3300-pinebook-pro.dtb"
-#U_BOOT_FDT_DIR="/boot/dtbs/"
+U_BOOT_FDT_DIR="/boot/dtbs/"
 

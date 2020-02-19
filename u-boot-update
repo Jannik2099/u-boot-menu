@@ -80,7 +80,7 @@ U_BOOT_DEFAULT="${U_BOOT_DEFAULT:-l0}"
 U_BOOT_ENTRIES="${U_BOOT_ENTRIES:-all}"
 U_BOOT_TIMEOUT="${U_BOOT_TIMEOUT:-50}"
 U_BOOT_MENU_LABEL="Gentoo Linux"
-U_BOOT_FDT_DIR="${U_BOOT_FDT_DIR:-/usr/src/linux}"
+U_BOOT_FDT_DIR="${U_BOOT_FDT_DIR:-/boot/dtbs}"
 
 # Find parameter for root from fstab
 if [ -z "${U_BOOT_ROOT}" ]
@@ -156,12 +156,12 @@ do
 	else
 		_INITRD=""
 	fi
-	if [ -e ${U_BOOT_FDT_DIR}/${U_BOOT_FDT} ] && [ -n "${U_BOOT_FDT}" ]
+	if [ -e ${U_BOOT_FDT_DIR}/${_VERSION}/${U_BOOT_FDT} ] && [ -n "${U_BOOT_FDT}" ]
 	then
-		_FDT="fdt ${U_BOOT_FDT_DIR}/${U_BOOT_FDT}"
-	elif [ -d ${U_BOOT_FDT_DIR}/ ]
+		_FDT="fdt ${U_BOOT_FDT_DIR}/${_VERSION}/${U_BOOT_FDT}"
+	elif [ -d ${U_BOOT_FDT_DIR}/${_VERSION}/ ]
 	then
-		_FDT="fdtdir ${U_BOOT_FDT_DIR}/"
+		_FDT="fdtdir ${U_BOOT_FDT_DIR}/${_VERSION}/"
 	else
 		_FDT=""
 	fi
